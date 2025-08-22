@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styling/analytics.css">
+  <link rel="stylesheet" href="styling/header.css">
+  <title>Home</title>
+</head>
+
+<body>
+  <div class="heading-container">
+    <div class="logo">
+      SmartScan Attend
+    </div>
+    <header class="heading">
+      <div class="heading-left">
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a class="list-item active" href="analytics.html">Analytics</a></li>
+            <li><a class="list-item" href="attendance.html">Attendance</a></li>
+            <li><a class="list-item" href="manage.html">Manage Students</a></li>
+            <li><a class="list-item" href="logs.html">Logs</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="heading-right">
+        <div class="col1">
+          <div class="search">
+            <button class="search-button">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="#6B7280">
+                <path
+                  d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+              </svg>
+            </button>
+            <input type="text" placeholder="Search..." id="">
+          </div>
+        </div>
+        <div class="col-subcontainer">
+          <div class="col2">
+            <div class="col-container notification-container">
+              <img src="icons/notification.svg" alt="Notifications" id="notificationIcon">
+              <span id="notificationBadge" class="badge" style="display: none;">0</span>
+              <div id="notificationPanel" class="notification-panel" style="display: none;">
+                <div class="panel-header">
+                  <h3>Notifications</h3>
+                  <a href="#" id="markAsReadBtn">Mark all as read</a>
+                </div>
+                <ul id="notificationList">
+                  <!-- Notifications will be added here by JavaScript -->
+                  <li>No new notifications.</li>
+                </ul>
+              </div>
+              <p>Notifications</p>
+            </div>
+          </div>
+
+          <div class="col2 hamburger-menu">
+            <a href="notification.html" class="notification-menu-link">
+              <div class="col-container notification-container">
+                <img src="icons/notification.svg" alt="Notifications" id="notificationIcon">
+                <span id="notificationBadge" class="badge" style="display: none;">0</span>
+                <p>Notifications</p>
+              </div>
+            </a>
+          </div>
+          <div class="col3">
+            <div class="col-container">
+              <img src="icons/settings.svg" alt="">
+              <p>
+                settings
+              </p>
+            </div>
+          </div>
+          <div class="col4">
+            <div class="col-container">
+              <a href="settings.html" class="logged-user">
+                <div class="heading-user-img">
+                  <img src="images/img1.jpg" alt="">
+                </div>
+                <p class="heading-user-name">
+                  Prof Leonard
+                </p>
+              </a>
+              <img class="chevron-right" src="icons/chevron-right.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <img src="icons/close.svg" id="closeBtn" class="menu-close" alt="">
+    </header>
+
+    <img src="icons/menu.svg" class="menu-button" id="menuBtn" alt="">
+  </div>
+
+
+
+  <!-- sub heading -->
+  <div class="sub-heading">
+    <div class="sub-heading-top">
+      <div class="sub-heading-top-l">
+        <div class="user">
+          <div class="user-img">
+            <img src="images/img1.jpg" alt="">
+          </div>
+          <div class="user-txt">
+            <p>
+              Hello
+              <span class="user-name">Leonard!</span>
+            </p>
+            <p class="greeting">
+              We hope you are having a great day
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-heading-top-r">
+        <div class="class-filter">
+          <select class="filter-dropdown" id="classFilter">
+            <option value="all">All Classes</option>
+            <option value="classA">Class A</option>
+            <option value="classB">Class B</option>
+            <option value="classC">Class C</option>
+          </select>
+        </div>
+        <div class="time-filter">
+          <select class="filter-dropdown" id="dateFilter">
+            <option value="30">Last 30 Days</option>
+            <option value="7">Last 7 Days</option>
+            <option value="today">Today</option>
+          </select>
+        </div>
+        <div class="filter-button">
+          <!-- <img src="icons" alt=""> -->
+          Filter
+        </div>
+      </div>
+    </div>
+
+
+    <div class="sub-heading-bottom">
+      <div class="todays-attendance total-students">
+        <div class="icon">
+          <img src="icons/person.svg" alt="">
+        </div>
+        <div>
+          <div class="attendance-value">
+            -
+          </div>
+          <div class="corresponding-text">
+            Total student
+          </div>
+        </div>
+        <div class="view-details">
+          <img src="icons/more_vert.svg" alt="">
+          <!-- <div class="tool-tip">view details</div> -->
+        </div>
+      </div>
+
+      <div class="todays-attendance present-today">
+        <div class="icon">
+          <img src="icons/logout.svg" alt="">
+        </div>
+        <div>
+          <div class="attendance-value">
+            -
+          </div>
+          <div class="corresponding-text">
+            present today
+          </div>
+        </div>
+        <div class="view-details">
+          <img src="icons/more_vert.svg" alt="">
+          <!-- <div class="tool-tip">view details</div> -->
+        </div>
+      </div>
+
+      <div class="todays-attendance absent-today">
+        <div class="icon">
+          <img src="icons/person.svg" alt="">
+        </div>
+        <div>
+          <div class="attendance-value">
+            -
+          </div>
+          <div class="corresponding-text">
+            absent today
+          </div>
+        </div>
+        <div class="view-details">
+          <img src="icons/more_vert.svg" alt="">
+          <!-- <div class="tool-tip">view details</div> -->
+        </div>
+      </div>
+
+      <div class="todays-attendance late-students">
+        <div class="icon">
+          <img src="icons/history.svg" alt="">
+        </div>
+        <div>
+          <div class="attendance-value">
+            -
+          </div>
+          <div class="corresponding-text">
+            late Students
+          </div>
+        </div>
+        <div class="view-details">
+          <img src="icons/more_vert.svg" alt="">
+          <!-- <div class="tool-tip">view details</div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- dashboard main -->
+  <main class="main">
+    <div class="dashboard-top">
+      <!-- left side (chart + calender)-->
+      <div class="main-chart">
+        <div class="chart-header">
+          <h4>Total Attendance Report</h4>
+        </div>
+        <div class="main-chart-placeholder">
+          <canvas id="attendanceChart"></canvas>
+        </div>
+      </div>
+
+      <div class="calendar-container">
+        <div class="calendar-header">
+          <button id="prevMonth">&lt;</button>
+          <h4 id="currentMonthYear"></h4>
+          <button id="nextMonth">&gt;</button>
+        </div>
+        <div class="calendar">
+          <div class="calendar-days">
+            <div class="day-name">
+              Sun
+            </div>
+            <div class="day-name">
+              Mon
+            </div>
+            <div class="day-name">
+              Tue
+            </div>
+            <div class="day-name">
+              Wed
+            </div>
+            <div class="day-name">
+              Thu
+            </div>
+            <div class="day-name">
+              Fri
+            </div>
+            <div class="day-name">
+              Sat
+            </div>
+          </div>
+          <div class="calendar-dates" id="calendarDates"></div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT SIDE (Other small charts and lists) -->
+    <div class="dashboard-bottom">
+      <!-- Students by Gender -->
+      <div class="small-chart-box">
+        <div class="chart-header">
+          <h4>Students by Gender</h4>
+        </div>
+        <div class="chart-placeholder">
+          <canvas id="students-gender-chart"></canvas>
+        </div>
+      </div>
+      <div class="small-chart-box">
+        <div class="chart-header">
+          <h4>Top 6 Attendant Student</h4>
+        </div>
+        <ul class="top-attendant-list">
+          <li>No attendant data available.</li>
+        </ul>
+      </div>
+
+      <!-- Weekly Absent -->
+      <div class="small-chart-box">
+        <div class="chart-header">
+          <h4>Weekly Absent</h4>
+        </div>
+        <div class="chart-placeholder">
+          <canvas id="weekly-absent"></canvas>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <script src="main1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>

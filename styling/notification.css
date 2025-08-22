@@ -1,0 +1,109 @@
+/* ================================================= */
+/*       STYLING FOR DEDICATED NOTIFICATIONS PAGE      */
+/* ================================================= */
+
+/* --- Main Container --- */
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* --- Header Section inside the container --- */
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.title-container h2 {
+    margin: 0;
+    font-size: var(--heading4); /* Using font variable */
+    color: var(--dark-blue);
+}
+
+.mark-all-read {
+    font-size: var(--body-small); /* Using font variable */
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 600;
+}
+.mark-all-read:hover {
+    text-decoration: underline;
+}
+
+/* --- Notification List --- */
+.notification-list-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notification-list-container li {
+    padding: 1rem;
+    border-bottom: 1px solid var(--light-gray);
+    transition: background-color 0.2s ease;
+}
+.notification-list-container li:last-child {
+    border-bottom: none;
+}
+
+/* Style for unread notifications */
+.notification-list-container li.unread {
+    background-color: var(--light-green); /* Using color variable */
+    border-left: 4px solid var(--primary-green); /* Using color variable */
+    padding-left: calc(1rem - 4px); /* Adjust padding to account for the border */
+}
+
+/* Style for individual parts of a notification item */
+.notification-list-container .title {
+    font-weight: bold;
+    color: var(--dark-blue);
+    font-size: var(--body-text); /* Using font variable */
+    display: block;
+    margin-bottom: 4px;
+}
+
+.notification-list-container .message {
+    font-size: var(--body-small); /* Using font variable */
+    color: var(--dark-gray);
+}
+
+.notification-list-container .timestamp {
+    font-size: var(--body-extra-small); /* Using font variable */
+    color: var(--mid-gray); /* Using color variable */
+    display: block;
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+
+/* Style for placeholder messages */
+.loading-placeholder, .empty-placeholder {
+    text-align: center;
+    padding: 3rem;
+    color: var(--dark-gray);
+    border-bottom: none;
+    font-size: var(--body-text);
+}
+
+
+@media screen and (max-width:768px) {
+    .container{
+        max-width: 100%;
+        margin: 2rem 1rem;
+    }   
+}
+@media screen and (max-width:390px) {
+    .title-container h2{
+        font-size: var(--body-text);
+    }
+    #markAllReadBtn{
+        font-size: var(--body-small);
+    }   
+}

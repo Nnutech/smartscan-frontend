@@ -1,0 +1,510 @@
+/* ================================================= */
+/*             1. CORE & LAYOUT STYLES               */
+/* ================================================= */
+body {
+    font-family: 'space grotesk';
+    background-color: var(--light-gray);
+    color: var(--primary-dark);
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: auto;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.student-search-bar {
+    flex-grow: 1;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--mid-gray);
+}
+
+#studentSearchInput {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    font-size: var(--body-text);
+}
+
+.student-search-bar .search-button {
+    padding: 0 1rem;
+    background-color: var(--light-gray);
+    cursor: pointer;
+    border: none;
+}
+
+.student-search-bar .search-button:hover {
+    background-color: var(--mid-gray);
+}
+
+
+.register-student-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-green);
+    color: var(--white);
+    font-size: var(--button-text);
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    border: none;
+}
+.register-student-btn:disabled {
+    background-color: var(--mid-gray);
+    cursor: not-allowed;
+}
+
+.register-student-btn:hover {
+    filter: brightness(1.1);
+}
+
+
+/* Placeholder for initial view or no results */
+.placeholder-card {
+    text-align: center;
+    padding: 4rem;
+    color: var(--dark-gray);
+    background-color: #f9fafb;
+    border: 2px dashed var(--mid-gray);
+}
+
+/* Header inside cards */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card-header h2 {
+    font-size: var(--heading5);
+}
+
+.card-header .actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.card-header select,
+.card-header button {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--mid-gray);
+    font-size: var(--button-text);
+}
+
+.card-header button {
+    background-color: var(--primary-green);
+    color: white;
+    cursor: pointer;
+}
+
+.card-header button:hover {
+    filter: brightness(1.1);
+}
+
+/* Student Info Grid */
+.student-info-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.student-avatar {
+    /* grid: 1 / 2; */
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.student-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.student-main-info h3 {
+    font-size: 1.75rem;
+}
+
+.student-main-info p {
+    color: var(--dark-gray);
+}
+
+.student-contact-info {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--light-gray);
+}
+
+.contact-item span {
+    color: var(--dark-gray);
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.stat-card {
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.stat-card.attendance {
+    background-color: var(--light-green);
+}
+
+.stat-card.absent {
+    background-color: var(--light-red);
+}
+
+.stat-card.late,
+.stat-card.undertime {
+    background-color: var(--light-gray);
+}
+
+/* Neutral background */
+.stat-info p:first-child {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.stat-info p:last-child {
+    font-size: 0.8rem;
+    color: var(--dark-gray);
+}
+
+
+/* Main Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.summary-chart-container{
+    position: relative;
+    height: max-content;
+}
+.summary-chart-container canvas {
+    width: 100%;
+    height: 300px;
+}
+
+/* Top Students Table (Simplified) */
+.top-students table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.top-students th,
+.top-students td {
+    text-align: left;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.top-students th {
+    color: var(--dark-gray);
+}
+
+
+/* ================================================= */
+/*            2. MODAL & OVERLAY STYLES              */
+/* ================================================= */
+.modal-parent-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    scale: 0.2;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: ease-in-out 0.2s;
+}
+
+.show {
+    display: flex;
+    scale: 1;
+    opacity: 1;
+    backdrop-filter: blur(20px);
+}
+
+.modal-container {
+    position: relative;
+    margin-top: var(--header-height);
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.397);
+    width: 90%;
+    max-width: 450px;
+    padding:1.5rem 2.5rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 1px solid var(--mid-gray);
+}
+
+.show .modal-container {
+    transform: scale(1);
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.close-modal-btn svg {
+    fill: var(--dark-gray);
+}
+
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.modal-header h2 {
+    font-size: 1.75rem;
+    color: var(--dark-blue);
+}
+
+.modal-header p {
+    color: var(--dark-gray);
+}
+
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    /* Two-column grid */
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    position: relative;
+}
+.form-subgrid{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.form-group:first-child,
+.form-group:nth-child(2){
+    width:100%;
+}
+
+/* Make email and phone span both columns */
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-input {
+    width: 100%;
+    border: 1px solid var(--mid-gray);
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: var(--body-text);
+    background-color: var(--light-gray);
+    color: var(--dark-blue);
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+}
+
+.form-label {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    padding: 0 0.25rem;
+    color: var(--dark-gray);
+    transition: all 0.2s ease;
+    pointer-events: none;
+    background-color: var(--light-gray);
+}
+
+.form-input:focus+.form-label,
+.form-input:not(:placeholder-shown)+.form-label {
+    top: -0.7rem;
+    font-size: var(--body-small);
+    color: var(--primary-green);
+}
+
+/* Radio and Select specific styling */
+.select-label,
+.radio-group-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+}
+
+#regDepartment {
+    width: 100%;
+    padding: 1rem;
+    font-size: var(--body-text);
+    border: 1px solid var(--mid-gray);
+    border-radius: 8px;
+    background-color: var(--light-gray);
+}
+#regDepartment,
+.radio-group{
+    width: 100%;
+}
+.radio-group {
+    display: flex;
+    gap: 8px;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: var(--light-gray);
+    border: 1px solid var(--mid-gray);
+}
+
+.radio-group input[type="radio"] {
+    accent-color: var(--primary-green);
+}
+
+.submit-btn{
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-green);
+    color: var(--white);
+    font-size: var(--button-text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.submit-btn:hover {
+    background-color: #16a34a;
+}
+.submit-btn:disabled {
+    background-color: var(--mid-gray);
+    cursor: not-allowed;
+}
+
+.status-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-size: var(--body-text);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+/* Status variations */
+.status-waiting {
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+}
+
+.status-scanning {
+    background-color: var(--light-green);
+    color: var(--primary-green);
+}
+
+.status-success {
+    background-color: var(--light-green);
+    color: var(--primary-green);
+}
+
+.status-error {
+    background-color: var(--light-red);
+    color: var(--error-red);
+}
+
+/* ================================================= */
+/*                 5. SPINNER STYLING                */
+/* ================================================= */
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-left-color: var(--primary-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: none;
+    /* Hidden by default */
+}
+
+.status-scanning .spinner {
+    display: block;
+    /* Shown only during scanning */
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ================================================= */
+/*          4. OTHER ELEMENTS & RESPONSIVE           */
+/* ================================================= */
+
+
+
+
+/* Responsive Form for small screens */
+@media screen and (max-width: 640px) {
+    .form-grid{
+        gap: 0.8rem;
+    }
+    .form-subgrid {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+}
