@@ -4,7 +4,8 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   // --- GLOBAL SETUP & VARIABLES ---
-  const API_BASE_URL = "http://localhost:80/api";
+  // const API_BASE_URL = "http://localhost:80/api";
+  const API_BASE_URL = 'https://smartscan-attend-hosted-production.up.railway.app';
 
   // --- GLOBAL SITE FUNCTIONALITY (e.g., Mobile Navigation) ---
   // This code runs on EVERY page that includes the header.
